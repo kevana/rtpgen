@@ -14,7 +14,7 @@ The makefile has targets for linux, OS X, and Windows. Linux is the default targ
     $ make win32    (Windows)
 
 ##Usage
-rtpgen run with no argumetns will default to address `127.0.0.1`, port `9000`, and a rate of `1` packet per second.
+rtpgen run with no arguments will default to address `127.0.0.1`, port `9000`, and a rate of `1` packet per second.
 
     $ ./rtpgen
 
