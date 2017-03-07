@@ -291,7 +291,7 @@ int main(int argc, char *argv[]) {
 	
 	// read user options
 	int option_index = 0;
-	char optc;
+	int optc;
 	static struct option long_options[] =
 		{
 		 {"address", 		required_argument, 0, 'a'},
