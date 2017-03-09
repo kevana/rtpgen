@@ -370,14 +370,11 @@ int main(int argc, char *argv[]) {
 #ifdef WIN32
 		Sleep((1 / sendRate) * 1000);
 #else
-        if (sendRate <= 1) {
-            to_sleep.tv_sec = (time_t)(1 / sendRate);
-        }
-        else {
-            to_sleep.tv_sec = 0;
-        }
-        to_sleep.tv_nsec = ((long int)((1 / sendRate) * 1000000) % 999999999);
-        while ((nanosleep(&to_sleep, &to_sleep) == -1) && (errno == EINTR));
+        	long long int sleep;
+		sleep = 1000000000 / sendRate;
+		to_sleep.tv_sec = (time_t) (sleep / 1000000000);
+		to_sleep.tv_nsec = (long) (sleep % 1000000000);
+		while ((nanosleep(&to_sleep, &to_sleep) == -1) && (errno == EINTR));
 #endif
 	}
 }
